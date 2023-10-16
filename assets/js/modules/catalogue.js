@@ -29,5 +29,6 @@ const catalogue = [
         album : "Work It",
         like : false 
     }
+    
 ];
 export { catalogue }
