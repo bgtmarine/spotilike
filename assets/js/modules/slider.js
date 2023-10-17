@@ -1,21 +1,32 @@
-const slider = (catalogue, currentTrack, status = "init") => {
+const sliderHTML = document.querySelector("#slider");
+const coverUrl = "./assets/img/cover/";
+
+
+const initSlider = () => {
+    // je cree une première image d'arriere plan fixe
+    const coverSlider = document.createElement("img");
+    coverSlider.src = coverUrl + catalogue[currentTrack].cover;
+    coverSlider.id = "coverSlider";
+    sliderHTML.append(coverSlider);
+    // je cree une deuxieme image supperposée destiné à l'effet(transform)
+    const imgA = document.createElement("img");
+    imgA.id = "imgA";
+    sliderHTML.append(imgA);
+}
+
+
+
+const slider = (status = "init") => {
     console.log("initialisation du slider");
     /* console.dir(catalogue);
     console.log(catalogue[0].cover); */
     //console.log(catalogue[0]["cover"]);
-    const sliderHTML = document.querySelector("#slider");
-    const coverUrl = "./assets/img/cover/";
+    
 
 
     switch (status) {
         case "init":
-            const coverSlider = document.createElement("img");
-            coverSlider.src = coverUrl + catalogue[currentTrack].cover;
-            coverSlider.id = "coverSlider";
-            // prepend insere un element avant ceux qui existent déjà dans le parent
-            //sliderHTML.prepend(coverSlider);
-            // append insere un element après ceux qui existent déjà dans le parent
-            sliderHTML.append(coverSlider);
+            initSlider();
             break;
         case "next":
             document.querySelector("#coverSlider").src =

@@ -2,35 +2,71 @@ import { catalogue } from "./modules/catalogue.js";
 import { slider } from "./modules/slider.js";
 import { audio } from "./modules/audio.js";
 //console.dir(catalogue);
-let currentTrack = 0;
-let isPlaying = false;
+
+
 const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const playPause = document.querySelector("#play-pause");
+// globalThis permet de partager une variable ou une fonction
+// avec tous mes modules mais aussi elements de mon script;
+globalThis.track = null;
+globalThis.catalogue = catalogue;
+globalThis.currentTrack = 0;
+globalThis.isPlaying = false;
+// fonction chargée de gérer l'etat de mon bouton Play/Pause
+const statusBPP = ()=>{
+    if (!isPlaying) {
+        playPause.textContent = "Play";
+    } else {
+        playPause.textContent = "Pause";
+    }
+}
+
 // click sur le bouton next
-nextButton.addEventListener("click",()=>{
-    if (currentTrack < catalogue.length-1) {
+nextButton.addEventListener("click", () => {
+    if (currentTrack < catalogue.length - 1) {
         currentTrack++;
     } else {
         currentTrack = 0;
     }
-    slider(catalogue,currentTrack,"next");
-    console.log(currentTrack);
+    slider("next");
+    // j'arrete la lecture en cours
+    audio("pause");
+    // je reinitialise track avec la nouvelle valeur de currentTrack
+    audio();//init
+    // je relance la lecture
+    audio("play");
+    // je viens de lancer une nouvelle lecture : isPlaying doit passer à true
+    console.log(isPlaying);
+    isPlaying = true;
+    statusBPP();
+    
 })
 // idem pour previous
-prevButton.addEventListener("click",()=>{
+prevButton.addEventListener("click", () => {
     if (currentTrack > 0) {
         currentTrack--;
     } else {
-        currentTrack = catalogue.length-1;
+        currentTrack = catalogue.length - 1;
     }
-    slider(catalogue,currentTrack,"prev");
-    console.log(currentTrack);
+    slider("prev");
+    // je viens de lancer une nouvelle lecture : isPlaying doit passer à true
+    console.log(isPlaying);
+    isPlaying = true;
+    statusBPP();
 })
 // actions sur le bouton play-pause
-playPause.addEventListener("click",()=>{
-    if(isPlaying)
-
+playPause.addEventListener("click", () => {
+    // ! veut dire inverse d'une boolean ex !isPlaying vaut false
+    if (!isPlaying/*  === false */) {
+        isPlaying = true;
+        audio("play");
+    } else {
+        isPlaying = false;
+        audio("pause");
+    }
+    statusBPP();
+    //isPlaying = !isPlaying;
 })
-slider(catalogue,currentTrack);
-audio(catalogue,currentTrack);
+slider();
+audio();
