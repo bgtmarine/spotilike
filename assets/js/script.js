@@ -1,9 +1,12 @@
 import { catalogue } from "./modules/catalogue.js";
 import { slider } from "./modules/slider.js";
+import { audio } from "./modules/audio.js";
 //console.dir(catalogue);
 let currentTrack = 0;
+let isPlaying = false;
 const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
+const playPause = document.querySelector("#play-pause");
 // click sur le bouton next
 nextButton.addEventListener("click",()=>{
     if (currentTrack < catalogue.length-1) {
@@ -24,5 +27,10 @@ prevButton.addEventListener("click",()=>{
     slider(catalogue,currentTrack,"prev");
     console.log(currentTrack);
 })
+// actions sur le bouton play-pause
+playPause.addEventListener("click",()=>{
+    if(isPlaying)
 
+})
 slider(catalogue,currentTrack);
+audio(catalogue,currentTrack);

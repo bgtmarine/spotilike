@@ -5,7 +5,7 @@ const catalogue = [
         genre : ["Hip Hop","Funk/Soul"],
         annee : 2004,
         cover : "golden-Jill-Scott.jpg",
-        audio : "blbla.mp3",
+        audio : "Jill Scott - Golden (Lyrics).mp3",
         album : "Golden",
         like : false
     },
@@ -29,6 +29,6 @@ const catalogue = [
         album : "Work It",
         like : false 
     }
-    
+
 ];
 export { catalogue }
