@@ -24,7 +24,7 @@
 .slideLeft{
     transform: translateX(-100%);
 }
-
+/* Autre effet possible */
 .fadeOut{
     opacity:0;
 }
