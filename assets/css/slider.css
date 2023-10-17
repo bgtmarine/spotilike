@@ -10,8 +10,21 @@
     position: absolute;
     top:0;
     left: 0;
-    transition: all .5s;
+    
 }
 #coverSlider{
-    
+
+}
+.transSlider{
+    transition: all .5s;
+}
+.slideRight{
+    transform: translateX(100%);
+}
+.slideLeft{
+    transform: translateX(-100%);
+}
+
+.fadeOut{
+    opacity:0;
 }

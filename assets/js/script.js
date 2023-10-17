@@ -1,6 +1,7 @@
 import { catalogue } from "./modules/catalogue.js";
 import { slider } from "./modules/slider.js";
 import { audio } from "./modules/audio.js";
+import { playList } from "./modules/playlist.js";
 //console.dir(catalogue);
 
 
@@ -50,6 +51,12 @@ prevButton.addEventListener("click", () => {
         currentTrack = catalogue.length - 1;
     }
     slider("prev");
+    // j'arrete la lecture en cours
+    audio("pause");
+    // je reinitialise track avec la nouvelle valeur de currentTrack
+    audio();//init
+    // je relance la lecture
+    audio("play");
     // je viens de lancer une nouvelle lecture : isPlaying doit passer à true
     console.log(isPlaying);
     isPlaying = true;
@@ -70,3 +77,5 @@ playPause.addEventListener("click", () => {
 })
 slider();
 audio();
+// affichage de la playList
+playList();
