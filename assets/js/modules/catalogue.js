@@ -15,7 +15,7 @@ const catalogue = [
         genre : ["Hip Hop","Funk/Soul"],
         annee : 2004,
         cover : "woo-hah!!!-busta-rhymes.jpg",
-        audio : "blbla.mp3",
+        audio : "Busta Rhymes _- Woo-Hah!! Got You All In Check (Official Video) [Explicit].mp3",
         album : "Woo-Hah!!!",
         like : false
     },
@@ -25,13 +25,13 @@ const catalogue = [
         genre : ["Hip Hop","Funk/Soul"],
         annee : 2004,
         cover : "workit-MissyElliott.jpg",
-        audio : "blbla.mp3",
+        audio : "Missy Elliott - Work It [Official Music Video].mp3",
         album : "Work It",
         like : false 
     },
     {
-        audio: "blabla.mp3",
-        cover: "blabla.jpg",
+        audio: "its-bigger-than-hip-hop-dead-prez.mp3",
+        cover: "coverDeadPrez.jpg",
         titre: "It's bigger than Hip Hop",
         artiste : "Dead Prez",
         genre: ["Hip Hop"],
@@ -40,8 +40,8 @@ const catalogue = [
         like : false
     },
     {
-        audio: "blabla.mp3",
-        cover: "blabla.jpg",
+        audio: "the-pharcyde-passin-me-by.mp3",
+        cover: "coverPharcyde.jpg",
         titre: "Passin me by",
         artiste: "The Pharcyde",
         genre: ["Hip Hop"],
@@ -50,72 +50,74 @@ const catalogue = [
         like : false
     },
     {
-        audio: "blabla.mp3",
-        cover: "blabla.jpg",
-        titre: "93 til infinity",
-        "author": "Soul Of Mischief",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
+        audio: "soul-of-mischief-93-til-infinity.mp3",
+        cover: "coverSoulOf.jpg",
+        titre: "Passin me by",
+        artiste: "The Pharcyde",
+        genre: ["Hip Hop"],
+        annee: 1993,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
     },
     {
-        "audio": "./assets/audio/Assassin de la police  .mp3",
-        "cover": "./assets/img/cover/R-56560-1485965868-9292.jpg",
-        "title": "titre4",
-        "author": "The Pharcyde",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
-    }
-    ,
+        audio: "In A Sentimental Mood.mp3",
+        cover: "In A Sentimental Mood.jpg",
+        titre: "In A Sentimental Mood",
+        artiste: "Duke Ellington",
+        genre: ["Jazz"],
+        annee: 1966,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
+    },
     {
-        "audio": "./assets/audio/Busta Flex - Style Gratuit.mp3",
-        "cover": "./assets/img/cover/R-56560-1340476029-5822.jpg",
-        "title": "titre5",
-        "author": "The Pharcyde",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
-    }
-    ,
+        audio: "DAngelo - Spanish Joint (acoustic demo).mp3",
+        cover: "DAngelo - Spanish Joint (acoustic demo).jpg",
+        titre: "Spanish Joint (acoustic demo)",
+        artiste: "D'Angelo",
+        genre: ["Hip Hop"],
+        annee: 2000,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
+    },
     {
-        "audio": "./assets/audio/IAM feat NTM - Laisse pas trainer ton fils 1.mp3",
-        "cover": "./assets/img/cover/R-56560-1340476023-1199.jpg",
-        "title": "titre6",
-        "author": "The Pharcyde",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
-    }
-    ,
+        audio: "Jamiroquai - Alright.mp3",
+        cover: "Jamiroquai - Alright.jpg",
+        titre: "Alright",
+        artiste: "Jamiroquai",
+        genre: ["Hip Hop"],
+        annee: 1993,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
+    },
     {
-        "audio": "./assets/audio/In A Sentimental Mood.mp3",
-        "cover": "./assets/img/cover/R-56560-1351870657-1077.jpg",
-        "title": "titre7",
-        "author": "The Pharcyde",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
-    }
-    ,
+        audio: "Gorillaz - Dare HD.mp3",
+        cover: "Gorillaz - Dare HD.jpg",
+        titre: "Dare",
+        artiste: "Gorillaz",
+        genre: ["Hip Hop"],
+        annee: 2005,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
+    },
     {
-        "audio": "./assets/audio/Valse de Melody.mp3",
-        "cover": "./assets/img/cover/R-56560-1351870665-6105.jpg",
-        "title": "titre8",
-        "author": "The Pharcyde",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
-    }
-    ,
+        audio: "Chopin - Waltz Op. 64 No. 2 (Rubinstein).mp3",
+        cover: "Chopin - Waltz Op. 64 No. 2 (Rubinstein).jpg",
+        titre: "Waltz Op. 64 No. 2 (Rubinstein)",
+        artiste: "Chopin",
+        genre: ["Hip Hop"],
+        annee: 1958,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
+    },
     {
-        "audio": "./assets/audio/Viva la revoluecion.mp3",
-        "cover": "./assets/img/cover/R-56560-1351870616-6924.jpg",
-        "title": "titre9",
-        "author": "The Pharcyde",
-        "genre": "Hip Hop",
-        "year": 1993,
-        "description": "blblablablbl qsdgkq"
+        audio: "Nina Simone & Lauryn Hill - Fu-Gee-La feat. The Fugees (Prod. Amerigo Gazaway).mp3",
+        cover: "Nina Simone & Lauryn Hill - Fu-Gee-La feat. The Fugees (Prod. Amerigo Gazaway).jpg",
+        titre: "Fu-Gee-La",
+        artiste: "Nina Simone & Lauryn Hill (Prod. Amerigo Gazaway)",
+        genre: ["Hip Hop"],
+        annee: 2019,
+        album: "YOUPIIIIIIIIIIIIIII",
+        like : false
     }
 ];
 export { catalogue }
