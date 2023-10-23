@@ -11,10 +11,8 @@ const playPause = document.querySelector("#play-pause");
 globalThis.sliderHTML = document.querySelector("#slider");
 const mc = new Hammer(sliderHTML)
 
-// test
-mc.on("swiperight",()=>{
-    console.log("swipe right");
-})
+
+
 
 // globalThis permet de partager une variable ou une fonction
 // avec tous mes modules mais aussi elements de mon script;
@@ -55,8 +53,25 @@ const switchPlayPause = () => {
     statusBPP();
     //isPlaying = !isPlaying;
 }
-// click sur le bouton next
-nextButton.addEventListener("click", () => {
+const prevEvents = ()=>{
+    if (currentTrack > 0) {
+        currentTrack--;
+    } else {
+        currentTrack = catalogue.length - 1;
+    }
+    slider("prev");
+    // j'arrete la lecture en cours
+    audio("pause");
+    // je reinitialise track avec la nouvelle valeur de currentTrack
+    audio();//init
+    // je relance la lecture
+    audio("play");
+    // je viens de lancer une nouvelle lecture : isPlaying doit passer à true
+    console.log(isPlaying);
+    isPlaying = true;
+    statusBPP();
+}
+const nextEvents = () => {
     if (currentTrack < catalogue.length - 1) {
         currentTrack++;
     } else {
@@ -74,26 +89,13 @@ nextButton.addEventListener("click", () => {
     isPlaying = true;
     statusBPP();
 
-})
+}
+// click sur le bouton next
+mc.on("swipeleft", nextEvents );
+nextButton.addEventListener("click", nextEvents);
 // idem pour previous
-prevButton.addEventListener("click", () => {
-    if (currentTrack > 0) {
-        currentTrack--;
-    } else {
-        currentTrack = catalogue.length - 1;
-    }
-    slider("prev");
-    // j'arrete la lecture en cours
-    audio("pause");
-    // je reinitialise track avec la nouvelle valeur de currentTrack
-    audio();//init
-    // je relance la lecture
-    audio("play");
-    // je viens de lancer une nouvelle lecture : isPlaying doit passer à true
-    console.log(isPlaying);
-    isPlaying = true;
-    statusBPP();
-})
+mc.on("swiperight", prevEvents );
+prevButton.addEventListener("click", prevEvents );
 // actions sur le bouton play-pause
 // si dans un addEventListener je doit utiliser ma propre fonction au 
 // lieu d'une callback je ne peux alors pas utiliser de parenthèses
