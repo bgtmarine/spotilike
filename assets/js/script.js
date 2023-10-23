@@ -8,8 +8,41 @@ import { playlist } from "./modules/playlist.js";
 const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const playPause = document.querySelector("#play-pause");
+const subTime = document.querySelector("#subTime");
+const time = document.querySelector("#time");
 globalThis.sliderHTML = document.querySelector("#slider");
-const mc = new Hammer(sliderHTML)
+const mc = new Hammer(sliderHTML);
+const mcBody = new Hammer(document.body,{direction: Hammer.DIRECTION_ALL});
+const mcTime = new Hammer(time,{direction: Hammer.DIRECTION_ALL});
+mcTime.on('panright',()=>{
+    console.log("pan right");
+    if(track.currentTime < track.duration){
+        track.currentTime += 1;
+    }
+    console.log(track.volume);
+})
+mcTime.on('panleft',()=>{
+    console.log("pan left");
+    if(track.currentTime > 0){
+        track.currentTime -= 1;
+    }
+    console.log(track.volume);
+})
+mcBody.on('panup',()=>{
+    console.log("pan up");
+    if(track.volume < 1){
+        track.volume += .005;
+    }
+    console.log(track.volume);
+})
+mcBody.on('pandown',()=>{
+    console.log("pan down");
+    if(track.volume > 0.005){
+        track.volume -= .005;
+    }
+    console.log(track.volume);
+})
+
 
 
 
@@ -104,5 +137,12 @@ playPause.addEventListener("click", switchPlayPause);
 
 slider();
 audio();
+
+
+
+setInterval(()=>{
+    let w = (track.currentTime*100)/track.duration;
+    subTime.style.width = w+"%";
+},50)
 // affichage de la playList
 playlist();

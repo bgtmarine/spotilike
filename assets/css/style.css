@@ -11,3 +11,12 @@ img{
 #playlist p{
     padding: .5rem;
 }
+#time{
+    border: .01rem #ccc solid;
+    height: 1.5rem;
+}
+#subTime{
+    width: 0;
+    height: 1.5rem;
+    background-color: fuchsia;
+}
