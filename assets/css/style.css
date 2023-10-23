@@ -1,0 +1,10 @@
+img{
+    width: 100%;
+}
+
+.item{
+    display: flex;
+}
+.itemImg{
+    width: 60px;
+}
