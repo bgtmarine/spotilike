@@ -14,6 +14,7 @@ const audio = (status = "init") => {
             break;
         case "pause":
             track.pause();
+            break;
         default :
             console.log("erreur dans la fonction audio()");
             break;

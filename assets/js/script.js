@@ -8,17 +8,35 @@ import { playlist } from "./modules/playlist.js";
 const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const playPause = document.querySelector("#play-pause");
+globalThis.sliderHTML = document.querySelector("#slider");
+const mc = new Hammer(sliderHTML)
+
+// test
+mc.on("swiperight",()=>{
+    console.log("swipe right");
+})
+
 // globalThis permet de partager une variable ou une fonction
 // avec tous mes modules mais aussi elements de mon script;
 globalThis.track = null;
 globalThis.catalogue = catalogue;
 globalThis.currentTrack = 0;
 globalThis.isPlaying = false;
+
+
 globalThis.miniPlayPause = (index) => {
     console.log(index);
+    if (currentTrack !== index) {
+        currentTrack = index;
+        isPlaying = false;
+        audio("pause");
+        audio();
+        slider("next");
+    }
+    switchPlayPause();
 }
 // fonction chargée de gérer l'etat de mon bouton Play/Pause
-const statusBPP = ()=>{
+const statusBPP = () => {
     if (!isPlaying) {
         playPause.textContent = "Play";
     } else {
@@ -55,7 +73,7 @@ nextButton.addEventListener("click", () => {
     console.log(isPlaying);
     isPlaying = true;
     statusBPP();
-    
+
 })
 // idem pour previous
 prevButton.addEventListener("click", () => {
@@ -80,7 +98,7 @@ prevButton.addEventListener("click", () => {
 // si dans un addEventListener je doit utiliser ma propre fonction au 
 // lieu d'une callback je ne peux alors pas utiliser de parenthèses
 // pour l'appeler.
-playPause.addEventListener("click", switchPlayPause );
+playPause.addEventListener("click", switchPlayPause);
 
 slider();
 audio();
