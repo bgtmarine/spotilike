@@ -14,6 +14,9 @@ globalThis.track = null;
 globalThis.catalogue = catalogue;
 globalThis.currentTrack = 0;
 globalThis.isPlaying = false;
+globalThis.miniPlayPause = (index) => {
+    console.log(index);
+}
 // fonction chargée de gérer l'etat de mon bouton Play/Pause
 const statusBPP = ()=>{
     if (!isPlaying) {
@@ -22,7 +25,18 @@ const statusBPP = ()=>{
         playPause.textContent = "Pause";
     }
 }
-
+const switchPlayPause = () => {
+    // ! veut dire inverse d'une boolean ex !isPlaying vaut false
+    if (!isPlaying/*  === false */) {
+        isPlaying = true;
+        audio("play");
+    } else {
+        isPlaying = false;
+        audio("pause");
+    }
+    statusBPP();
+    //isPlaying = !isPlaying;
+}
 // click sur le bouton next
 nextButton.addEventListener("click", () => {
     if (currentTrack < catalogue.length - 1) {
@@ -63,18 +77,11 @@ prevButton.addEventListener("click", () => {
     statusBPP();
 })
 // actions sur le bouton play-pause
-playPause.addEventListener("click", () => {
-    // ! veut dire inverse d'une boolean ex !isPlaying vaut false
-    if (!isPlaying/*  === false */) {
-        isPlaying = true;
-        audio("play");
-    } else {
-        isPlaying = false;
-        audio("pause");
-    }
-    statusBPP();
-    //isPlaying = !isPlaying;
-})
+// si dans un addEventListener je doit utiliser ma propre fonction au 
+// lieu d'une callback je ne peux alors pas utiliser de parenthèses
+// pour l'appeler.
+playPause.addEventListener("click", switchPlayPause );
+
 slider();
 audio();
 // affichage de la playList

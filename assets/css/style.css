@@ -8,3 +8,6 @@ img{
 .itemImg{
     width: 60px;
 }
+#playlist p{
+    padding: .5rem;
+}
