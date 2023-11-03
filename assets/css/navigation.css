@@ -1,0 +1,8 @@
+#navigation{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+#navigation div{
+    width: 45px;
+}

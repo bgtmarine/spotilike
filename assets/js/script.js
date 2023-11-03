@@ -7,7 +7,7 @@ import { playlist } from "./modules/playlist.js";
 
 const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
-const playPause = document.querySelector("#play-pause");
+const playPause = document.querySelector("#play-pause img");
 const subTime = document.querySelector("#subTime");
 const time = document.querySelector("#time");
 globalThis.sliderHTML = document.querySelector("#slider");
@@ -53,6 +53,8 @@ globalThis.track = null;
 globalThis.catalogue = catalogue;
 globalThis.currentTrack = 0;
 globalThis.isPlaying = false;
+// definition image de fond du player
+document.body.style.backgroundImage = "url('./assets/img/cover/"+catalogue[currentTrack].cover+"')";
 
 
 globalThis.miniPlayPause = (index) => {
@@ -65,13 +67,15 @@ globalThis.miniPlayPause = (index) => {
         slider("next");
     }
     switchPlayPause();
+    document.body.style.backgroundImage = "url('./assets/img/cover/"+catalogue[currentTrack].cover+"')";
+
 }
 // fonction chargée de gérer l'etat de mon bouton Play/Pause
 const statusBPP = () => {
     if (!isPlaying) {
-        playPause.textContent = "Play";
+        playPause.src = "./assets/img/play-circle-solid.svg";
     } else {
-        playPause.textContent = "Pause";
+        playPause.src = "./assets/img/pause-circle-regular.svg";
     }
 }
 const switchPlayPause = () => {
@@ -103,6 +107,8 @@ const prevEvents = ()=>{
     console.log(isPlaying);
     isPlaying = true;
     statusBPP();
+    document.body.style.backgroundImage = "url('./assets/img/cover/"+catalogue[currentTrack].cover+"')";
+
 }
 const nextEvents = () => {
     if (currentTrack < catalogue.length - 1) {
@@ -121,6 +127,7 @@ const nextEvents = () => {
     console.log(isPlaying);
     isPlaying = true;
     statusBPP();
+    document.body.style.backgroundImage = "url('./assets/img/cover/"+catalogue[currentTrack].cover+"')";
 
 }
 // click sur le bouton next
@@ -143,6 +150,11 @@ audio();
 setInterval(()=>{
     let w = (track.currentTime*100)/track.duration;
     subTime.style.width = w+"%";
+    // detection fin de la piste
+    if(track.currentTime >= track.duration){
+        // passage à next
+        nextEvents();
+    }
 },50)
 // affichage de la playList
 playlist();

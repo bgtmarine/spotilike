@@ -1,0 +1,12 @@
+#time{
+    border-radius: 10px;
+    border: .01rem #ccc solid;
+    height: 1rem;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+#subTime{
+    width: 0;
+    height: 1rem;
+    background-color: rgba(0, 0, 0, 0.75);
+}

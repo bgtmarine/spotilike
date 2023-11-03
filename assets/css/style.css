@@ -1,22 +1,28 @@
-img{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+img,input{
     width: 100%;
+    vertical-align: bottom;
 }
-
-.item{
-    display: flex;
+body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(5px);
 }
-.itemImg{
-    width: 60px;
+#player{
+    margin: 1rem;
 }
-#playlist p{
-    padding: .5rem;
-}
-#time{
-    border: .01rem #ccc solid;
-    height: 1.5rem;
-}
-#subTime{
-    width: 0;
-    height: 1.5rem;
-    background-color: fuchsia;
+@media screen and (min-width:576px) {
+    body{
+        max-height: 100vh;
+        overflow: hidden;
+    }
+    #container{
+        display: flex;
+    }
 }

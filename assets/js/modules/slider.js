@@ -31,7 +31,6 @@ const prevSlider=()=>{
     
 }
 
-
 const slider = (status = "init") => {
     switch (status) {
         case "init":
@@ -46,9 +45,6 @@ const slider = (status = "init") => {
         default:
             break;
     }
-
-
-
 };
 
 export { slider };
