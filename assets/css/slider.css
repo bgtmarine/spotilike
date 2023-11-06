@@ -15,10 +15,37 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 2;
 
 }
 
-#coverSlider {}
+#textesA{
+    position: absolute;
+    top: 0rem;
+    z-index: 3;
+    width: 100%;
+    left: 0rem;
+    padding:1rem;
+    background-color: rgba(31, 31, 70, 0.568);
+    color: white;
+   
+}
+
+#coverSlider{
+    z-index: 0;
+}
+
+#textesB{
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    padding:1rem;
+    z-index: 1;
+    width: 100%;
+    background-color: rgba(31, 31, 70, 0.568);
+    color: white;
+   
+}
 
 .transSlider {
     transition: all .5s;
@@ -35,4 +62,32 @@
 /* Autre effet possible */
 .fadeOut {
     opacity: 0;
+}
+
+#prevBTN{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+}
+
+#nextBTN{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    z-index: 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#prevBTN:hover, #nextBTN:hover{
+    background-color: rgb(248, 244, 244);
+    cursor: pointer;
 }
